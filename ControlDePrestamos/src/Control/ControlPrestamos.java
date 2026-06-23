@@ -96,10 +96,20 @@ public class ControlPrestamos {
         return persona;
     }
 
-    public boolean modificarPersona(String identificacion, String nombre, String telefono, String correo) {
+    public boolean modificarPersona(String identificacion, String nombre, String telefono, String correo)
+            throws PersonaNoEncontradaError {
+
         Persona persona = personas.get(identificacion);
 
-        if (persona == null || estaVacio(nombre)) {
+        if (persona == null) {
+
+            throw new PersonaNoEncontradaError(
+                    "No existe una persona con la identificacion "
+                            + identificacion
+            );
+        }
+
+        if (estaVacio(nombre)) {
             return false;
         }
 
@@ -110,14 +120,21 @@ public class ControlPrestamos {
         return true;
     }
 
-    public boolean eliminarPersona(String identificacion) {
+    public boolean eliminarPersona(String identificacion)
+            throws PersonaNoEncontradaError {
+
         Persona persona = personas.get(identificacion);
 
         if (persona == null) {
-            return false;
+
+            throw new PersonaNoEncontradaError(
+                    "No existe una persona con la identificacion "
+                            + identificacion
+            );
         }
 
         for (Prestamo prestamo : prestamos.values()) {
+
             if (prestamo.getPersona() == persona && !"Finalizado".equalsIgnoreCase(prestamo.getEstado())) {
                 return false;
             }
@@ -126,11 +143,7 @@ public class ControlPrestamos {
         personas.remove(identificacion);
         return true;
     }
-
-    public Collection<Categoria> listarCategorias() {
-        return categorias.values();
-    }
-
+    
     public Categoria obtenerCategoria(int idCategoria)
             throws CategoriaNoEncontradaError {
 
@@ -159,31 +172,54 @@ public class ControlPrestamos {
         return categoria;
     }
 
-    public boolean modificarCategoria(int idCategoria, String nombre, String descripcion) {
-        Categoria categoria = categorias.get(idCategoria);
+    public boolean modificarCategoria(int idCategoria,
+            String nombre,
+            String descripcion)
+    throws CategoriaNoEncontradaError {
 
-        if (categoria == null || estaVacio(nombre)) {
-            return false;
-        }
+Categoria categoria = categorias.get(idCategoria);
 
-        categoria.setNombre(nombre);
-        categoria.setDescripcion(descripcion);
+if (categoria == null) {
 
-        return true;
-    }
+throw new CategoriaNoEncontradaError(
+"No existe una categoria con el id "
+  + idCategoria
+);
 
-    public boolean eliminarCategoria(int idCategoria) {
+}
+
+if (estaVacio(nombre)) {
+return false;
+}
+
+categoria.setNombre(nombre);
+categoria.setDescripcion(descripcion);
+
+return true;
+}
+
+    public boolean eliminarCategoria(int idCategoria)
+            throws CategoriaNoEncontradaError {
+
         Categoria categoria = categorias.get(idCategoria);
 
         if (categoria == null) {
-            return false;
+
+            throw new CategoriaNoEncontradaError(
+                    "No existe una categoria con el id "
+                            + idCategoria
+            );
+
         }
 
         for (Item item : categoria.getItems()) {
+
             item.eliminarCategoria(categoria);
+
         }
 
         categorias.remove(idCategoria);
+
         return true;
     }
 
@@ -219,10 +255,24 @@ public class ControlPrestamos {
         return tipo;
     }
 
-    public boolean modificarTipo(int idTipo, String nombre, String descripcion, boolean generico) {
+    public boolean modificarTipo(int idTipo,
+            String nombre,
+            String descripcion,
+            boolean generico)
+            throws TipoNoEncontradoError {
+
         Tipo tipo = tipos.get(idTipo);
 
-        if (tipo == null || estaVacio(nombre)) {
+        if (tipo == null) {
+
+            throw new TipoNoEncontradoError(
+                    "No existe un tipo con el id "
+                            + idTipo
+            );
+
+        }
+
+        if (estaVacio(nombre)) {
             return false;
         }
 
@@ -233,25 +283,28 @@ public class ControlPrestamos {
         return true;
     }
 
-    public boolean eliminarTipo(int idTipo) {
+    public boolean eliminarTipo(int idTipo)
+            throws TipoNoEncontradoError {
+
         Tipo tipo = tipos.get(idTipo);
 
-        if (tipo == null || tipo.isGenerico()) {
-            return false;
-        }
+        if (tipo == null) {
 
-        Tipo tipoGenerico = obtenerTipoGenerico();
+            throw new TipoNoEncontradoError(
+                    "No existe un tipo con el id "
+                            + idTipo
+            );
 
-        if (tipoGenerico == null) {
-            return false;
         }
 
         for (Item item : tipo.getItem()) {
-            item.setTipo(tipoGenerico);
-            tipoGenerico.agregarItem(item);
+
+            item.setTipo(null);
+
         }
 
         tipos.remove(idTipo);
+
         return true;
     }
 
@@ -281,13 +334,27 @@ public class ControlPrestamos {
         return item;
     }
 
-    public boolean modificarItem(int idItem, String codigo, String nombre, String descripcion, int idTipo) {
-        Item item = items.get(idItem);
-        Tipo nuevoTipo = tipos.get(idTipo);
+    public boolean modificarItem(int idItem,
+            String codigo,
+            String nombre,
+            String descripcion,
+            int idTipo)
+throws ItemNoEncontradoError {
+    	Item item = items.get(idItem);
+    	Tipo nuevoTipo = tipos.get(idTipo);
 
-        if (item == null || nuevoTipo == null || estaVacio(codigo) || estaVacio(nombre)) {
-            return false;
-        }
+    	if (item == null) {
+
+    	    throw new ItemNoEncontradoError(
+    	            "No existe un item con el id "
+    	                    + idItem
+    	    );
+
+    	}
+
+    	if (nuevoTipo == null || estaVacio(codigo) || estaVacio(nombre)) {
+    	    return false;
+    	}
 
         Tipo tipoActual = item.getTipo();
 
@@ -305,12 +372,22 @@ public class ControlPrestamos {
         return true;
     }
 
-    public boolean eliminarItem(int idItem) {
-        Item item = items.get(idItem);
+    public boolean eliminarItem(int idItem)
+            throws ItemNoEncontradoError {
+    	Item item = items.get(idItem);
 
-        if (item == null || item.isPrestado()) {
-            return false;
-        }
+    	if (item == null) {
+
+    	    throw new ItemNoEncontradoError(
+    	            "No existe un item con el id "
+    	                    + idItem
+    	    );
+
+    	}
+
+    	if (item.isPrestado()) {
+    	    return false;
+    	}
 
         if (item.getTipo() != null) {
             item.getTipo().eliminarItem(item);
@@ -481,18 +558,17 @@ public class ControlPrestamos {
         return true;
     }
 
-    public boolean finalizarPrestamo(int idPrestamo) {
+    public boolean finalizarPrestamo(int idPrestamo)
+            throws PrestamoNoEncontradoError {
         Prestamo prestamo = prestamos.get(idPrestamo);
 
         if (prestamo == null) {
-            return false;
-        }
 
-        for (Item item : items.values()) {
-            if (item.getPrestamo() == prestamo) {
-                item.setPrestamo(null);
-                item.setPrestado(false);
-            }
+            throw new PrestamoNoEncontradoError(
+                    "No existe un prestamo con el id "
+                    + idPrestamo
+            );
+
         }
 
         prestamo.setFechaRetorno(new Date());
@@ -534,11 +610,17 @@ public class ControlPrestamos {
         return true;
     }
 
-    public boolean activarAlerta(int idAlerta) {
+    public boolean activarAlerta(int idAlerta)
+    		throws AlertaNoEncontradaError {
         Alerta alerta = alertas.get(idAlerta);
 
         if (alerta == null) {
-            return false;
+
+            throw new AlertaNoEncontradaError(
+                    "No existe una alerta con el id "
+                            + idAlerta
+            );
+
         }
 
         alerta.activar();
