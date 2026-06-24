@@ -42,6 +42,11 @@ public class VentanaAdministracion extends JFrame {
         panel.add(Box.createVerticalStrut(20));
 
         JButton btnPersonas = new JButton("Personas");
+        btnPersonas.addActionListener(e -> {
+
+            new VentanaPersonas();
+
+        });
 
         btnPersonas.setMaximumSize(new Dimension(220, 40));
 
