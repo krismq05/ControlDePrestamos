@@ -3,7 +3,6 @@ package interfaz;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -57,6 +56,11 @@ public class VentanaAdministracion extends JFrame {
         panel.add(Box.createVerticalStrut(15));
 
         JButton btnItems = new JButton("Ítems");
+        btnItems.addActionListener(e -> {
+
+            new VentanaÍtems();
+
+        });
 
         btnItems.setMaximumSize(new Dimension(220, 40));
 
@@ -67,6 +71,11 @@ public class VentanaAdministracion extends JFrame {
         panel.add(Box.createVerticalStrut(15));
 
         JButton btnCategorias = new JButton("Categorías");
+        btnCategorias.addActionListener(e -> {
+
+            new VentanaCategorias();
+
+        });
 
         btnCategorias.setMaximumSize(new Dimension(220, 40));
 

@@ -10,13 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VentanaPersonas extends JFrame {
+public class VentanaCategorias extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    public VentanaPersonas() {
+    public VentanaCategorias() {
 
-        setTitle("Gestión de Personas");
+        setTitle("Gestión de Categorías");
 
         setSize(900, 600);
 
@@ -30,7 +30,7 @@ public class VentanaPersonas extends JFrame {
 
         panel.add(Box.createVerticalStrut(20));
 
-        JLabel titulo = new JLabel("Gestión de Personas");
+        JLabel titulo = new JLabel("Gestión de Categorías");
 
         titulo.setFont(new Font("Arial", Font.BOLD, 22));
 
@@ -46,6 +46,8 @@ public class VentanaPersonas extends JFrame {
 
         btnRegistrar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnRegistrar.setFocusPainted(false);
+
         panel.add(btnRegistrar);
 
         panel.add(Box.createVerticalStrut(15));
@@ -55,6 +57,8 @@ public class VentanaPersonas extends JFrame {
         btnModificar.setMaximumSize(new Dimension(220, 40));
 
         btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btnModificar.setFocusPainted(false);
 
         panel.add(btnModificar);
 
@@ -66,6 +70,8 @@ public class VentanaPersonas extends JFrame {
 
         btnEliminar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnEliminar.setFocusPainted(false);
+
         panel.add(btnEliminar);
 
         panel.add(Box.createVerticalStrut(15));
@@ -75,6 +81,8 @@ public class VentanaPersonas extends JFrame {
         btnBuscar.setMaximumSize(new Dimension(220, 40));
 
         btnBuscar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btnBuscar.setFocusPainted(false);
 
         panel.add(btnBuscar);
 
@@ -86,6 +94,8 @@ public class VentanaPersonas extends JFrame {
 
         btnListar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnListar.setFocusPainted(false);
+
         panel.add(btnListar);
 
         panel.add(Box.createVerticalStrut(15));
@@ -95,6 +105,8 @@ public class VentanaPersonas extends JFrame {
         btnVolver.setMaximumSize(new Dimension(220, 40));
 
         btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btnVolver.setFocusPainted(false);
 
         btnVolver.addActionListener(e -> dispose());
 

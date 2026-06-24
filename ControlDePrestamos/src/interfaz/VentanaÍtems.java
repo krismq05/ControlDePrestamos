@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -10,13 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VentanaPersonas extends JFrame {
+public class VentanaÍtems extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    public VentanaPersonas() {
+    public VentanaÍtems() {
 
-        setTitle("Gestión de Personas");
+        setTitle("Gestión de Ítems");
 
         setSize(900, 600);
 
@@ -30,7 +31,7 @@ public class VentanaPersonas extends JFrame {
 
         panel.add(Box.createVerticalStrut(20));
 
-        JLabel titulo = new JLabel("Gestión de Personas");
+        JLabel titulo = new JLabel("Gestión de Ítems");
 
         titulo.setFont(new Font("Arial", Font.BOLD, 22));
 
