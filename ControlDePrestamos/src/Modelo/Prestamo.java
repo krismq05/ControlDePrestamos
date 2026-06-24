@@ -92,7 +92,15 @@ public class Prestamo {
 
     public void finalizarPrestamo() {
 
+        for (Item item : items) {
+
+            item.setPrestamo(null);
+            item.setPrestado(false);
+
+        }
+
         items.clear();
+
         estado = "Finalizado";
     }
 

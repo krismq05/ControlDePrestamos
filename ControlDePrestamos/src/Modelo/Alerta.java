@@ -26,6 +26,30 @@ public class Alerta {
         this.activa = activa;
         this.prestamo = prestamo;
     }
+    
+    public boolean debeActivarse() {
+
+        Date fechaActual = new Date();
+
+        long diferencia = fechaActual.getTime() - fechaInicio.getTime();
+
+        long dias = diferencia / (1000 * 60 * 60 * 24);
+
+        switch (frecuencia) {
+
+            case DIARIA:
+                return dias >= 1;
+
+            case SEMANAL:
+                return dias >= 7;
+
+            case MENSUAL:
+                return dias >= 30;
+
+            default:
+                return false;
+        }
+    }
 
     public int getIdAlerta() {
         return idAlerta;
