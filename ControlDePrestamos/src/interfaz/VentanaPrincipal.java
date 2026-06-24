@@ -48,6 +48,12 @@ public class VentanaPrincipal extends JFrame {
         panelBotones.setLayout(new GridLayout(3, 1, 0, 2));
 
         JButton btnAdministracion = new JButton("Administración");
+        btnAdministracion.addActionListener(e -> {
+
+            new VentanaAdministracion();
+
+        });
+        
         JButton btnPrestamos = new JButton("Préstamos");
         JButton btnReportes = new JButton("Reportes");
 
