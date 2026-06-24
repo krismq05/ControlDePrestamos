@@ -86,6 +86,11 @@ public class VentanaAdministracion extends JFrame {
         panel.add(Box.createVerticalStrut(15));
 
         JButton btnTipos = new JButton("Tipos");
+        btnTipos.addActionListener(e -> {
+
+            new VentanaTipos();
+
+        });
 
         btnTipos.setMaximumSize(new Dimension(220, 40));
 
