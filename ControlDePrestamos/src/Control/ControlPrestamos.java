@@ -235,6 +235,11 @@ return true;
 
         return true;
     }
+    public Collection<Categoria> listarCategorias() {
+
+        return categorias.values();
+
+    }
 
     public Collection<Tipo> listarTipos() {
         return tipos.values();

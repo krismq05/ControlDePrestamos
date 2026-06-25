@@ -62,6 +62,11 @@ public class VentanaCategorias extends JFrame {
         btnModificar.setMaximumSize(new Dimension(220, 40));
 
         btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnModificar.addActionListener(e -> {
+
+            new BuscarCategorias();
+
+        });
 
         btnModificar.setFocusPainted(false);
 
@@ -74,6 +79,11 @@ public class VentanaCategorias extends JFrame {
         btnEliminar.setMaximumSize(new Dimension(220, 40));
 
         btnEliminar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEliminar.addActionListener(e -> {
+
+            new BuscarCategorias();
+
+        });
 
         btnEliminar.setFocusPainted(false);
 
@@ -86,6 +96,11 @@ public class VentanaCategorias extends JFrame {
         btnBuscar.setMaximumSize(new Dimension(220, 40));
 
         btnBuscar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnBuscar.addActionListener(e -> {
+
+            new BuscarCategorias();
+
+        });
 
         btnBuscar.setFocusPainted(false);
 
@@ -98,6 +113,11 @@ public class VentanaCategorias extends JFrame {
         btnListar.setMaximumSize(new Dimension(220, 40));
 
         btnListar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnListar.addActionListener(e -> {
+
+            new BuscarCategorias();
+
+        });
 
         btnListar.setFocusPainted(false);
 

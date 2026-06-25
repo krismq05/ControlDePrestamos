@@ -50,6 +50,11 @@ public class VentanaÍtems extends JFrame {
         btnRegistrar.setMaximumSize(new Dimension(220, 40));
 
         btnRegistrar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnRegistrar.addActionListener(e -> {
+
+            new RegistarÍtem();
+
+        });
 
         panel.add(btnRegistrar);
 
@@ -60,6 +65,11 @@ public class VentanaÍtems extends JFrame {
         btnModificar.setMaximumSize(new Dimension(220, 40));
 
         btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnModificar.addActionListener(e -> {
+
+            new BuscarItems();
+
+        });
 
         panel.add(btnModificar);
 
@@ -70,6 +80,11 @@ public class VentanaÍtems extends JFrame {
         btnEliminar.setMaximumSize(new Dimension(220, 40));
 
         btnEliminar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEliminar.addActionListener(e -> {
+
+            new BuscarItems();
+
+        });
 
         panel.add(btnEliminar);
 
@@ -80,6 +95,11 @@ public class VentanaÍtems extends JFrame {
         btnBuscar.setMaximumSize(new Dimension(220, 40));
 
         btnBuscar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnBuscar.addActionListener(e -> {
+
+            new BuscarItems();
+
+        });
 
         panel.add(btnBuscar);
 
@@ -90,6 +110,11 @@ public class VentanaÍtems extends JFrame {
         btnListar.setMaximumSize(new Dimension(220, 40));
 
         btnListar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnListar.addActionListener(e -> {
+
+            new BuscarItems();
+
+        });
 
         panel.add(btnListar);
 
