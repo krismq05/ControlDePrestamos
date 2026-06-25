@@ -2,13 +2,14 @@ package interfaz;
 
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Control.ControlPrestamos;
+import Errores.PersonaDuplicadaError;
 
 public class RegistarPersonas extends JFrame {
 
@@ -88,9 +89,39 @@ public class RegistarPersonas extends JFrame {
 
     private void guardarPersona() {
 
-        JOptionPane.showMessageDialog(this,
-                "Persona registrada.");
+        if (txtNombre.getText().trim().isEmpty()
+                || txtIdentificacion.getText().trim().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Complete los campos obligatorios.");
+
+            return;
+        }
+
+        try {
+
+            ControlPrestamos control = ControlPrestamos.getInstancia();
+
+            control.crearPersona(
+                    txtNombre.getText(),
+                    txtIdentificacion.getText(),
+                    txtTelefono.getText(),
+                    txtCorreo.getText());
+
+            JOptionPane.showMessageDialog(this,
+                    "Persona registrada correctamente.");
+
+            txtNombre.setText("");
+            txtIdentificacion.setText("");
+            txtTelefono.setText("");
+            txtCorreo.setText("");
+
+        } catch (PersonaDuplicadaError e) {
+
+            JOptionPane.showMessageDialog(this,
+                    e.getMessage());
+
+        }
 
     }
-
 }
