@@ -54,6 +54,11 @@ public class VentanaPrincipal extends JFrame {
         });
         
         JButton btnPrestamos = new JButton("Préstamos");
+        btnPrestamos.addActionListener(e -> {
+
+            new VentanaPrestamos();
+
+        });
         JButton btnReportes = new JButton("Reportes");
 
         Dimension tamaño = new Dimension(220, 40);
