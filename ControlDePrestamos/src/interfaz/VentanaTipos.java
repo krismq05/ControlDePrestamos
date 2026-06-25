@@ -41,6 +41,11 @@ public class VentanaTipos extends JFrame {
         panel.add(Box.createVerticalStrut(30));
 
         JButton btnRegistrar = new JButton("Registrar");
+        btnRegistrar.addActionListener(e -> {
+
+            new RegistrarTipos();
+
+        });
         btnRegistrar.setMaximumSize(new Dimension(220, 40));
         btnRegistrar.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnRegistrar.setFocusPainted(false);

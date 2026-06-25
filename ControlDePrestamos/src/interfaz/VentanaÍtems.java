@@ -41,6 +41,11 @@ public class VentanaÍtems extends JFrame {
         panel.add(Box.createVerticalStrut(30));
 
         JButton btnRegistrar = new JButton("Registrar");
+        btnRegistrar.addActionListener(e -> {
+
+            new RegistarÍtem();
+
+        });
 
         btnRegistrar.setMaximumSize(new Dimension(220, 40));
 
