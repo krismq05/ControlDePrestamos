@@ -57,19 +57,29 @@ public class VentanaPrestamos extends JFrame {
 
         panel.add(Box.createVerticalStrut(20));
 
-        JButton btnModificar = new JButton("Modificar");
+        JButton btnAgregarItem = new JButton("Agregar Item");
+        btnAgregarItem.addActionListener(e -> {
 
-        btnModificar.setMaximumSize(new Dimension(220, 40));
+            new AgregarItemPrestamo();
 
-        btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        });
+        
+        btnAgregarItem.setMaximumSize(new Dimension(220, 40));
 
-        btnModificar.setFocusPainted(false);
+        btnAgregarItem.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        panel.add(btnModificar);
+        btnAgregarItem.setFocusPainted(false);
+
+        panel.add(btnAgregarItem);
 
         panel.add(Box.createVerticalStrut(20));
 
         JButton btnFinalizar = new JButton("Finalizar");
+        btnFinalizar.addActionListener(e -> {
+
+            new FinalizarPrestamo();
+
+        });
 
         btnFinalizar.setMaximumSize(new Dimension(220, 40));
 
