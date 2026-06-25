@@ -41,6 +41,11 @@ public class VentanaPrestamos extends JFrame {
         panel.add(Box.createVerticalStrut(40));
 
         JButton btnNuevo = new JButton("Nuevo");
+        btnNuevo.addActionListener(e -> {
+
+            new RegistrarPrestamos();
+
+        });
 
         btnNuevo.setMaximumSize(new Dimension(220, 40));
 
