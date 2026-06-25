@@ -56,6 +56,11 @@ public class VentanaTipos extends JFrame {
         JButton btnModificar = new JButton("Modificar");
         btnModificar.setMaximumSize(new Dimension(220, 40));
         btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnModificar.addActionListener(e -> {
+
+            new BuscarTipos();
+
+        });
         btnModificar.setFocusPainted(false);
         panel.add(btnModificar);
 
@@ -64,6 +69,11 @@ public class VentanaTipos extends JFrame {
         JButton btnEliminar = new JButton("Eliminar");
         btnEliminar.setMaximumSize(new Dimension(220, 40));
         btnEliminar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEliminar.addActionListener(e -> {
+
+            new BuscarTipos();
+
+        });
         btnEliminar.setFocusPainted(false);
         panel.add(btnEliminar);
 
@@ -72,6 +82,11 @@ public class VentanaTipos extends JFrame {
         JButton btnBuscar = new JButton("Buscar");
         btnBuscar.setMaximumSize(new Dimension(220, 40));
         btnBuscar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnBuscar.addActionListener(e -> {
+
+            new BuscarTipos();
+
+        });
         btnBuscar.setFocusPainted(false);
         panel.add(btnBuscar);
 
@@ -80,6 +95,11 @@ public class VentanaTipos extends JFrame {
         JButton btnListar = new JButton("Listar");
         btnListar.setMaximumSize(new Dimension(220, 40));
         btnListar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnListar.addActionListener(e -> {
+
+            new BuscarTipos();
+
+        });
         btnListar.setFocusPainted(false);
         panel.add(btnListar);
 
