@@ -60,6 +60,11 @@ public class VentanaPersonas extends JFrame {
         btnModificar.setMaximumSize(new Dimension(220, 40));
 
         btnModificar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnModificar.addActionListener(e -> {
+
+            new BuscarPersonas();
+
+        });
 
         panel.add(btnModificar);
 
@@ -70,6 +75,11 @@ public class VentanaPersonas extends JFrame {
         btnEliminar.setMaximumSize(new Dimension(220, 40));
 
         btnEliminar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnEliminar.addActionListener(e -> {
+
+            new BuscarPersonas();
+
+        });
 
         panel.add(btnEliminar);
 
@@ -80,6 +90,11 @@ public class VentanaPersonas extends JFrame {
         btnBuscar.setMaximumSize(new Dimension(220, 40));
 
         btnBuscar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnBuscar.addActionListener(e -> {
+
+            new BuscarPersonas();
+
+        });
 
         panel.add(btnBuscar);
 
@@ -90,6 +105,11 @@ public class VentanaPersonas extends JFrame {
         btnListar.setMaximumSize(new Dimension(220, 40));
 
         btnListar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnListar.addActionListener(e -> {
+
+            new BuscarPersonas();
+
+        });
 
         panel.add(btnListar);
 

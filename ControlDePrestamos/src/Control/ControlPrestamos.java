@@ -69,8 +69,21 @@ public class ControlPrestamos {
         return personas.values();
     }
 
-    public Persona obtenerPersona(String identificacion) {
-        return personas.get(identificacion);
+    public Persona obtenerPersona(String identificacion)
+            throws PersonaNoEncontradaError {
+
+        Persona persona = personas.get(identificacion);
+
+        if (persona == null) {
+
+            throw new PersonaNoEncontradaError(
+                    "No existe una persona con la identificación "
+                            + identificacion);
+
+        }
+
+        return persona;
+
     }
 
     public Persona crearPersona(String nombre,
